@@ -18,7 +18,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@/utils/supabase/client'
 import { cookies } from "next/headers"
 import { Separator } from "@/components/ui/separator"
 import SearchInput from "./components/search"

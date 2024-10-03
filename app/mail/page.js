@@ -1,5 +1,5 @@
 import { Mail } from "@/app/mail/components/mail";
-import { createClientMail } from '@/utils/supabase/server'
+import { createClientMail } from '@/utils/supabase/client'
 import { cookies } from 'next/headers'
 
 export default async function MailPage() {

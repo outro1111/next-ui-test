@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/table"
 
 // supabase
-import { createClientList } from '@/utils/supabase/server'
+import { createClientList } from '@/utils/supabase/client'
 import { cookies } from 'next/headers'
 // 날짜 포맷
 import { useFormatDate } from "@/utils/useFormatDate"
