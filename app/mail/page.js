@@ -11,7 +11,7 @@ export default async function MailPage() {
 
 	// mails 데이터 가져오기
 	const cookieStore = cookies();
-	const supabase = createClientMail(cookieStore);
+	const supabase = createClientMail();
 	const { data: mailsData } = await supabase.from('mails').select('*');
 	
 	return (

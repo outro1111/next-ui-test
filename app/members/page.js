@@ -25,7 +25,7 @@ import SearchInput from "./components/search"
 
 export default async function MembersPage({ searchParams: {name} }) {
   const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
+  const supabase = createClient()
   const { data: members } = await supabase.rpc('get_all_memeber')
 
   let filteredMembers;

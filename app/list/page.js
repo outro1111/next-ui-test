@@ -38,7 +38,7 @@ export default async function ListPage() {
   const {formatDate} = useFormatDate() // 리뷰 날짜 포맷팅
   // supabase
   const cookieStore = cookies()
-  const supabase = createClientList(cookieStore)
+  const supabase = createClientList()
   const { data: bbsLists } = await supabase.from('bbs').select()
 
   return (
