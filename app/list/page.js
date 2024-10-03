@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/table"
 
 // supabase
-import { createClientList } from '@/utils/supabase/client'
+import { createClientList } from '@/utils/supabase/server'
 import { cookies } from 'next/headers'
 // 날짜 포맷
 import { useFormatDate } from "@/utils/useFormatDate"
@@ -38,7 +38,7 @@ export default async function ListPage() {
   const {formatDate} = useFormatDate() // 리뷰 날짜 포맷팅
   // supabase
   const cookieStore = cookies()
-  const supabase = createClientList()
+  const supabase = createClientList(cookieStore)
   const { data: bbsLists } = await supabase.from('bbs').select()
 
   return (

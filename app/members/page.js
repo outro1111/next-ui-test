@@ -18,14 +18,14 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { createClient } from '@/utils/supabase/client'
+import { createClient } from '@/utils/supabase/server'
 import { cookies } from "next/headers"
 import { Separator } from "@/components/ui/separator"
 import SearchInput from "./components/search"
 
 export default async function MembersPage({ searchParams: {name} }) {
   const cookieStore = cookies()
-  const supabase = createClient()
+  const supabase = createClient(cookieStore)
   const { data: members } = await supabase.rpc('get_all_memeber')
 
   let filteredMembers;
