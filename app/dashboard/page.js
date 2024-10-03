@@ -150,17 +150,17 @@ export default async function Dashboard() {
                     {bbsLists.map((bbsList, index) => (
                       <TableRow className={index === 0 ? "bg-accent" : ""} key={ bbsList.id }>
                         <TableCell className="py-0 px-1">
-                          <Link href="/list" className="block font-medium truncate p-3">{ bbsList.title }</Link>
+                          <Link prefetch={true}  href="/list" className="block font-medium truncate p-3">{ bbsList.title }</Link>
                         </TableCell>
                         <TableCell className="py-0 px-1 hidden xl:table-cell">
-                          <Link href="/list" className="block truncate p-3">
+                          <Link prefetch={true}  href="/list" className="block truncate p-3">
                             <Badge className="text-xs" variant={ bbsList.type === "사내" ? "destructive" : "default" }>
                               { bbsList.type }
                             </Badge>
                           </Link>
                         </TableCell>
                         <TableCell className="py-0 px-1 hidden 2xl:table-cell">
-                          <Link href="/mail" className="block p-3">
+                          <Link prefetch={true}  href="/mail" className="block p-3">
                             { formatDate(bbsList.created_at) }
                           </Link>
                         </TableCell>
@@ -216,7 +216,7 @@ export default async function Dashboard() {
               </CardContent>
               <CardFooter>
                 <Button variant="outline" size="sm">
-                  <Link href="/members">검색하기</Link>
+                  <Link prefetch={true} href="/members">검색하기</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -297,7 +297,7 @@ export default async function Dashboard() {
             <CardHeader className="flex flex-row items-center justify-between flex-wrap px-7">
               <CardTitle>받은 메일</CardTitle>
               <Button variant="outline" size="sm">
-                <Link href="/mail">메일쓰기</Link>
+                <Link prefetch={true} href="/mail">메일쓰기</Link>
               </Button>
               <CardDescription className="basis-full">
                 { getUser.user.user_metadata.email } 계정의 새로 받은 메일을 확인 할 수 있습니다.
@@ -317,16 +317,16 @@ export default async function Dashboard() {
                   {mailsData.map((mails, index) => (
                     <TableRow className={`${!mails.read ? "bg-accent" : ""}`} key={ mails.id }>
                       <TableCell className="py-0 px-1">
-                        <Link href="/mail" className="block font-medium truncate p-3">{ mails.name }</Link>
+                        <Link prefetch={true} href="/mail" className="block font-medium truncate p-3">{ mails.name }</Link>
                       </TableCell>
                       <TableCell className="p-0 px-1">
-                        <Link href="/mail" className="block font-medium truncate p-3">
+                        <Link prefetch={true} href="/mail" className="block font-medium truncate p-3">
                           {!mails.read && <span className="inline-block h-2 w-2 mr-1 rounded-full bg-blue-600" />}  
                           { mails.subject }
                         </Link>
                       </TableCell>
                       <TableCell className="p-0 px-1 hidden lg:table-cell">
-                        <Link href="/mail" className="block font-medium p-3">
+                        <Link prefetch={true} href="/mail" className="block font-medium p-3">
                           {mails.labels.length ? (
                             <div className="flex items-center gap-1">
                               {mails.labels.map((label) => (
@@ -339,7 +339,7 @@ export default async function Dashboard() {
                         </Link>
                       </TableCell>
                       <TableCell className="p-0 px-1 hidden xl:table-cell">
-                        <Link href="/mail" className="block font-medium p-3">{ formatDateHour(mails.date) }</Link>
+                        <Link prefetch={true} href="/mail" className="block font-medium p-3">{ formatDateHour(mails.date) }</Link>
                       </TableCell>
                     </TableRow>
                   ))}
